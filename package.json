@@ -1,0 +1,96 @@
+{
+    "name": "vscode-accelerated",
+    "displayName": "Accelerated Up Down",
+    "description": "Accelerates up and down motions, like accelerated-jk for Vim.",
+    "version": "0.1.0",
+    "publisher": "ypresto",
+    "license": "SEE LICENSE IN LICENSE",
+    "bugs": {
+        "url": "https://github.com/ypresto/vscode-accelerated/issues",
+        "email": "smcbreen@microsoft.com"
+    },
+    "homepage": "https://github.com/ypresto/vscode-accelerated/blob/master/README.md",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ypresto/vscode-accelerated.git"
+    },
+    "engines": {
+        "vscode": "^1.23.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onCommand:accelerated.cursorUp",
+        "onCommand:accelerated.cursorDown"
+    ],
+    "main": "./out/extension",
+    "contributes": {
+        "commands": [
+            {
+                "command": "accelerated.cursorUp",
+                "title": "Cursor Up with Acceleration"
+            },
+            {
+                "command": "accelerated.cursorDown",
+                "title": "Cursor Down with Acceleration"
+            }
+        ],
+        "configuration": {
+            "type": "object",
+            "title": "Accelerated Up Down configuration",
+            "properties": {
+                "accelerated.accelerationTable": {
+                    "type": "array",
+                    "default": [
+                        7,
+                        12,
+                        17,
+                        21,
+                        24,
+                        26,
+                        28,
+                        30
+                    ],
+                    "description": "Number of key presses required to add 1 up/down motion per key press.",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "accelerated.commandMode": {
+                    "type": "string",
+                    "default": "vscodevim",
+                    "description": "Select command to be used for up/down motion. Currently vscodevim and cursormove are supported.",
+                    "enum": [
+                        "vscodevim",
+                        "vscodevim-gj-gk",
+                        "cursormove"
+                    ]
+                },
+                "accelerated.resetTime": {
+                    "type": "integer",
+                    "default": 150,
+                    "description": "Acceleration will be reset after specified time in millisecond elapsed."
+                }
+            }
+        }
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "npm run compile && node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "@types/lodash.debounce": "^4.0.3",
+        "@types/mocha": "^2.2.42",
+        "@types/node": "^7.0.43",
+        "tslint": "^5.10.0",
+        "typescript": "^2.6.1",
+        "vscode": "^1.1.6"
+    },
+    "dependencies": {
+        "lodash.debounce": "^4.0.8"
+    }
+}
