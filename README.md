@@ -19,7 +19,7 @@ For VSCodeVim, place the snippet on below to your User Settings:
 
 ```json
 {
-  "vim.otherModesKeyBindingsNonRecursive": [
+  "vim.normalModeKeyBindingsNonRecursive": [
     {
       "before": ["j"],
       "commands": [{
