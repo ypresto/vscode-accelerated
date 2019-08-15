@@ -2,7 +2,7 @@
     "name": "vscode-accelerated",
     "displayName": "Accelerated Up Down",
     "description": "Accelerates up and down motions, like accelerated-jk for Vim.",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "publisher": "ypresto",
     "license": "SEE LICENSE IN LICENSE",
     "bugs": {
@@ -25,6 +25,7 @@
         "onCommand:accelerated.cursorDown"
     ],
     "main": "./out/extension",
+    "extensionKind": "ui",
     "contributes": {
         "commands": [
             {
@@ -88,7 +89,7 @@
         "@types/node": "^7.0.43",
         "tslint": "^5.10.0",
         "typescript": "^2.6.1",
-        "vscode": "^1.1.6"
+        "vscode": "^1.1.36"
     },
     "dependencies": {
         "lodash.debounce": "^4.0.8"
